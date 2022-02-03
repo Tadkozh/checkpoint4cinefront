@@ -9,3 +9,8 @@
   min-height: 40vh;
   font-size: 1.3rem;
 }
+
+.photo {
+  margin: auto;
+  width: 90%;
+}

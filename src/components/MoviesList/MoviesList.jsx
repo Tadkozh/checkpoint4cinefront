@@ -12,7 +12,7 @@ const MoviesList = () => {
   const [wordEntered, setWordEntered] = useState('');
 
   const fetchData = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies/`);
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies`);
     setMovies(data);
     console.log(data);
   };
@@ -42,52 +42,47 @@ const MoviesList = () => {
 
   return (
   <main>
-    <Header linkTo="/" backTo="&lt;" title="Films" />
+    <Header linkTo='/' backTo='&lt;' title='Films' />
 
-      <section className="search">
-        <div className="searchInputs">
+      <section className='search'>
+        <div className='searchInputs'>
           <input
-            type="text"
-            placeholder="Cherchez"
+            type='text'
+            placeholder='Cherchez'
             value={wordEntered}
             onChange={handleFilter}
           />
-          <div className="searchIcon">
+          <div className='searchIcon'>
             {wordEntered.length === 0 ? (
               <SearchIcon />
             ) : (
-              <CloseIcon id="clearBtn" onClick={clearInput} />
+              <CloseIcon id='clearBtn' onClick={clearInput} />
             )}
           </div>
         </div>
       </section>
 
 
-      <section className="u-section">
+      <section className='u-section'>
       {
         movies
           ? movies.map((movie) => (
-              <article className="u-cont-info">
-                  <span className="u-info">{movie.id}</span>
-                  <p className="u-trademark">{movie.title}</p>
-                  <p className="u-infop">
-                    <span>{movie.year}</span>
-                    <span className="u-info">{movie.duration}</span>
-                  </p>
-                    <p className="u-infop">
-                      <span>{movie.country}</span>
-                      <br />
-                      <span>{movie.genre}</span>
-                      <img src={movie.photoMovUrl} alt=""/>
-                    </p>
-                  <p className="u-infop">
-                    <span>{movie.movieUrl}</span>
-                  </p>
+              <article className='u-cont-info'>
+                  {/* <span className='u-info'>{movie.id}</span> */}
+                  <p className='u-trademark'>{movie.title}</p>
+                  <p className='u-infop'>{movie.year}</p>
+                  {/* <p className='u-infop'>{movie.duration}</p>
+                  <p className='u-infop'>{movie.country}</p>
+                  <p className='u-infop'>{movie.genre}</p> */}
+                  <img className='photo' src={movie.photoMovUrl} alt='cinéma'/>
+                  {/* <button><a href={movie.movieUrl} target='_blank'>Voir le film</a></button> */}
               </article>
             ))
           : 'Chargement...'
       }
     </section>
+
+    <Footer />
   </main>
   )
 };
