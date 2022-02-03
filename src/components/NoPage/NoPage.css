@@ -1,0 +1,12 @@
+.nopage-container{
+  height: 80vh;
+}
+
+.nopage-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  color: var(--orange);
+  font-size: 1.3rem;
+}
