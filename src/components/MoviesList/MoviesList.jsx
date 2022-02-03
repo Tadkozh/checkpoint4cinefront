@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -9,18 +11,30 @@ import './MoviesList.css';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState();
-  const [wordEntered, setWordEntered] = useState('');
-
+  const [author, setAuthor] = useState([]);
+  const [wordEntered, setWordEntered] = useState([]);
+  
+  //List of items
   const fetchData = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies`);
     setMovies(data);
     console.log(data);
   };
-
   useEffect(() => {
     fetchData();
   }, []);
 
+  //Author
+  const fetchAuth = async () => {
+    const { inf } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors/${movies.authorId}`);
+    setAuthor(inf);
+    console.log(inf);
+  };
+  useEffect(() => {
+    fetchAuth();
+  });
+
+  //Search bar
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
@@ -39,7 +53,7 @@ const MoviesList = () => {
     fetchData([]);
     setWordEntered('');
   };
-
+  
   return (
   <main>
     <Header linkTo='/' backTo='&lt;' title='Films' />
@@ -62,7 +76,6 @@ const MoviesList = () => {
         </div>
       </section>
 
-
       <section className='u-section'>
       {
         movies
@@ -71,16 +84,15 @@ const MoviesList = () => {
                   {/* <span className='u-info'>{movie.id}</span> */}
                   <p className='u-trademark'>{movie.title}</p>
                   <p className='u-infop'>{movie.year}</p>
-                  {/* <p className='u-infop'>{movie.duration}</p>
-                  <p className='u-infop'>{movie.country}</p>
-                  <p className='u-infop'>{movie.genre}</p> */}
                   <img className='photo' src={movie.photoMovUrl} alt='cinéma'/>
-                  {/* <button><a href={movie.movieUrl} target='_blank'>Voir le film</a></button> */}
+                  <p className='u-infop'>{movie.authorId}</p>
+                  {/* <p className='u-infop'><Link to=/api/authors/{movies.authorId}>Cinéaste</Link></p> */}
+                  {/* <p className='u-infop'><Link to='/api/movies/{movie.Id}'>Détails</Link></p> */}
               </article>
             ))
           : 'Chargement...'
       }
-    </section>
+      </section>
 
     <Footer />
   </main>

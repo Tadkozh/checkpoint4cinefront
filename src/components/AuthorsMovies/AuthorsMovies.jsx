@@ -3,7 +3,7 @@ import React from 'react';
 import './AuthorsMovies.css';
 
 const AuthorsMovies = () => {
-  return <div>AuthorsMovies</div>;
+  return <div>Filmographie</div>;
 };
 
 export default AuthorsMovies;

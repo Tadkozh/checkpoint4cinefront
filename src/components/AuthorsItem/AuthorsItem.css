@@ -1,0 +1,8 @@
+.btn-link-a a {
+  margin: 50px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #5148B6;
+  color: #fff;
+  border-radius: 20px;
+}

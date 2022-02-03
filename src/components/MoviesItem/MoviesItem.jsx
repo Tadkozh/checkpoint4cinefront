@@ -28,22 +28,22 @@ const MoviesItem = () => {
     <Header linkTo="/" backTo="&lt;" title={info.title} />
     <main className="nopage-container">
       <div className="nopage-content">
-      <section className='u-section'>
-      {
-        info
-          ?
-              <article className='u-cont-info'>
-                  {/* <span className='u-info'>{movie.id}</span> */}
-                  <p className='u-infop'>Année : {info.year}</p>
-                  <p className='u-infop'>Durée : {info.duration}</p>
-                  <p className='u-infop'>Pays : {info.country}</p>
-                  <p className='u-infop'>Genre : {info.genre}</p>
-                  <img className='photo' src={info.photoMovUrl} alt='cinéma'/>
-                  <button><a href={info.movieUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir le film</a></button>
-              </article>
-          : 'Chargement...'
-      }
-    </section>
+        <section className='u-section'>
+        {
+          info
+            ?
+                <article className='u-cont-info'>
+                    {/* <span className='u-info'>{movie.id}</span> */}
+                    <p className='u-infop'>Année : {info.year}</p>
+                    <p className='u-infop'>Durée : {info.duration}</p>
+                    <p className='u-infop'>Pays : {info.country}</p>
+                    <p className='u-infop'>Genre : {info.genre}</p>
+                    <img className='photo' src={info.photoMovUrl} alt='cinéma'/>
+                    <div className='btn-link-m'><a href={info.movieUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir le film</a></div>
+                </article>
+            : 'Chargement...'
+        }
+        </section>
       </div>
     </main>
     <Footer />
