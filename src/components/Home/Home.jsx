@@ -1,9 +1,18 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 
 import './Home.css';
 
-const Home = () => {
-  return <div>Bienvenus sur les origines du cinéma, 1895 - 1929</div>;
-};
+const Home = () =>(
+  <>
+    
+    <main className="global-container">
+      <div className="global-content">
+        <p>Bienvenue sur les origines du cinéma, 1895 - 1929</p>
+      </div>
+    </main>
+    <Footer />
+  </>
+);
 
 export default Home;
