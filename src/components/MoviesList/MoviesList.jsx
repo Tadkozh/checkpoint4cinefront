@@ -7,11 +7,11 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+// import MoviesAuthor from '../MoviesAuthor/MoviesAuthor';
 import './MoviesList.css';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState();
-  const [author, setAuthor] = useState([]);
   const [wordEntered, setWordEntered] = useState([]);
   
   //List of items
@@ -23,16 +23,6 @@ const MoviesList = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  //Author
-  const fetchAuth = async () => {
-    const { inf } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors/${movies.authorId}`);
-    setAuthor(inf);
-    console.log(inf);
-  };
-  useEffect(() => {
-    fetchAuth();
-  });
 
   //Search bar
   const handleFilter = (event) => {
@@ -85,9 +75,10 @@ const MoviesList = () => {
                   <p className='u-trademark'>{movie.title}</p>
                   <p className='u-infop'>{movie.year}</p>
                   <img className='photo' src={movie.photoMovUrl} alt='cinéma'/>
-                  <p className='u-infop'>{movie.authorId}</p>
+                  {/* <p className='u-infop'>{movie.authorId}</p> */}
                   {/* <p className='u-infop'><Link to=/api/authors/{movies.authorId}>Cinéaste</Link></p> */}
-                  {/* <p className='u-infop'><Link to='/api/movies/{movie.Id}'>Détails</Link></p> */}
+                  {/* <p className='u-infop'><Link to='/api/movies/{movie.Id}'>Détails</Link></p>
+                  {/* <MoviesAuthor /> */}
               </article>
             ))
           : 'Chargement...'
