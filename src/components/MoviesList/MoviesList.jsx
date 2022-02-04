@@ -43,6 +43,11 @@ const MoviesList = () => {
     fetchData([]);
     setWordEntered('');
   };
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('Le lien a été cliqué.');
+  }
   
   return (
     <main className='main'>
@@ -75,10 +80,10 @@ const MoviesList = () => {
                   <p className='u-trademark'>{movie.title}</p>
                   <p className='u-infop'>{movie.year}</p>
                   <img className='photo' src={movie.photoMovUrl} alt='cinéma'/>
-                  {/* <p className='u-infop'>{movie.authorId}</p> */}
-                  {/* <p className='u-infop'><Link to=/api/authors/{movies.authorId}>Cinéaste</Link></p> */}
-                  {/* <p className='u-infop'><Link to='/api/movies/{movie.Id}'>Détails</Link></p>
-                  {/* <MoviesAuthor /> */}
+                  <div className='btn-container'>
+                    <div className='btn-link'><Link to={`/film/${movie.id}`}>Détails</Link></div>
+                    <div className='btn-link'><Link to={`/cineaste/${movie.authorId}`}>Auteur</Link></div>
+                  </div>               
               </article>
             ))
           : 'Chargement...'

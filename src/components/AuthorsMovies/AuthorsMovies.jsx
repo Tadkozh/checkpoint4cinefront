@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import './AuthorsMovies.css';
 
@@ -24,7 +24,7 @@ const AuthorsMovies = () => {
       {
         authmov 
           ? authmov.map((movie) => (
-                  <li>{movie.title}</li>
+                  <div><Link to={`/film/${movie.id}`}><li>{movie.title}</li></Link></div>
             ))
           : 'Chargement...'
           

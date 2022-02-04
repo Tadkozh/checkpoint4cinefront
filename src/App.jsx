@@ -22,11 +22,11 @@ const App = () => (
             <Route path="films" element={<MoviesList />} />
             <Route path="film/:id" element={<MoviesItem />} />
             <Route path="film/creer" element={<MoviesCreate />} />
-            <Route path="film/maj" element={<MoviesUpdate />} />
+            <Route path="film/maj/:id" element={<MoviesUpdate />} />
             <Route path="cineastes" element={<AuthorsList />} />
             <Route path="cineaste/:id" element={<AuthorsItem />} />
             <Route path="cineaste/creer" element={<AuthorsCreate />} />
-            <Route path="cineaste/maj" element={<AuthorsUpdate />} />
+            <Route path="cineaste/maj/:id" element={<AuthorsUpdate />} />
       
       </Routes>    
     </Router>
