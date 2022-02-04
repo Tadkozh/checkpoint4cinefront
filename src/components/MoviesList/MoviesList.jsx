@@ -55,7 +55,7 @@ const MoviesList = () => {
   };
   
   return (
-  <main>
+    <main className='main'>
     <Header linkTo='/' backTo='&lt;' title='Films' />
 
       <section className='search'>

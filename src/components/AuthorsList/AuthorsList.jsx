@@ -44,7 +44,7 @@ const AuthorsList = () => {
   };
   
   return (
-  <main>
+  <main className='main'>
     <Header linkTo='/' backTo='&lt;' title='Cinéastes' />
 
       <section className='search'>
@@ -70,11 +70,9 @@ const AuthorsList = () => {
         authors
           ? authors.map((author) => (
               <article className='u-cont-info'>
-                  <span className='u-info'>{author.id}</span>
+                  {/* <span className='u-info'>{author.id}</span> */}
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='cinéma'/>
-                  {/* <p className='u-infop'>{author.wikipediatUrl}</p> */}
-                  <div className='btn-link-a'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>
               </article>
             ))
           : 'Chargement...'

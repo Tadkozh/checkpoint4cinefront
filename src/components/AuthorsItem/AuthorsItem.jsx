@@ -10,7 +10,7 @@ import './AuthorsItem.css';
 const AuthorsItem = () => {
 
   const { id } = useParams();
-  const [author, setAuthor] = useState();
+  const [author, setAuthor] = useState([]);
   
   //List of items
   const fetchData = async () => {
@@ -20,11 +20,11 @@ const AuthorsItem = () => {
   };
   useEffect(() => {
     fetchData();
-  });
+  }, []);
   
   return (
-  <main>
-    <Header linkTo='/' backTo='&lt;' title='Nom cinéaste' />
+    <main className='main'>
+    <Header linkTo='/' backTo='&lt;' title={author.lastname} />
 
       <section className='u-section'>
       {
@@ -32,12 +32,13 @@ const AuthorsItem = () => {
           ?
             <>
               <article className='u-cont-info'>
-                  <span className='u-info'>{author.id}</span>
+                  {/* <span className='u-info'>{author.id}</span> */}
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='portrait'/>
-                  <AuthorsMovies />
                   {/* <p className='u-infop'>{authors.wikipediatUrl}</p> */}
                   <div className='btn-link-a'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>
+                  <p className='u-infop'>Films présents dans ce site :</p>
+                  <AuthorsMovies />
               </article>
             </>
           : 'Chargement...'

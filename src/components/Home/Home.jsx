@@ -8,7 +8,7 @@ const Home = () =>(
     
     <main className="global-container">
       <div className="global-content">
-        <p>Bienvenue sur les origines du cinéma, 1895 - 1929</p>
+        <p>Bienvenue aux origines du cinéma, 1895 - 1929</p>
       </div>
     </main>
     <Footer />

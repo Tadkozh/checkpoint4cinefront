@@ -5,8 +5,8 @@ import './NoPage.css';
 const NoPage = () => (
   <>
     <Header />
-    <main className="nopage-container">
-      <div className="nopage-content">
+    <main className="global-container">
+      <div className="global-content">
         <p>Oops, this page does not exist!</p>
       </div>
     </main>
