@@ -1,0 +1,21 @@
+.main {
+  margin-bottom: 100px;
+}
+
+.global-container{
+  height: 80vh;
+}
+
+.global-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  font-size: 1.3rem;
+}
+
+.photo {
+  padding: 20px;
+  margin: auto;
+  width: 90%;
+}

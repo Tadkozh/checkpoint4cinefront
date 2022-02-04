@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #FFFFFF;
+  background-color: #C4C4C4;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  padding: 1.4rem 10vw;
+  border: 0;
+  width: 80vw;
+  height: 60px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.header a{
+  position: absolute;
+  left: 30px;
+  padding-right: 3rem;
+}
+
+.header-return {
+  border: 0;
+  background-color: inherit;
+  color: white;
+  font-size: 30px;
+  transition: color 0.2s ease-out;
+}
+
+.header-return:hover {
+  color: var(--kaki);
+  cursor: pointer;
+}
