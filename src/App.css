@@ -19,3 +19,18 @@
   margin: auto;
   width: 90%;
 }
+
+.btn-link a {
+  padding: 10px;
+  text-decoration: none;
+  background-color: #5148B6;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+}

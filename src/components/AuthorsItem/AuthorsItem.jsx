@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -36,7 +36,11 @@ const AuthorsItem = () => {
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='portrait'/>
                   {/* <p className='u-infop'>{authors.wikipediatUrl}</p> */}
-                  <div className='btn-link-a'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>
+                  
+                  <div className='btn-container'>
+                    <div className='btn-link'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>
+                    <div className='btn-link'><Link to={`/cineaste/maj/${author.id}`}>maj</Link></div>
+                  </div> 
                   <p className='u-infop'>Films présents dans ce site :</p>
                   <AuthorsMovies />
               </article>

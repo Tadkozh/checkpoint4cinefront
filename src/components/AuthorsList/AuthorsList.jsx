@@ -73,6 +73,7 @@ const AuthorsList = () => {
                   {/* <span className='u-info'>{author.id}</span> */}
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='cinéma'/>
+                  <div className='btn-link'><Link to={`/cineaste/${author.id}`}>Détails</Link></div>
               </article>
             ))
           : 'Chargement...'
