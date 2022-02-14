@@ -32,10 +32,8 @@ const AuthorsItem = () => {
           ?
             <>
               <article className='u-cont-info'>
-                  {/* <span className='u-info'>{author.id}</span> */}
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='portrait'/>
-                  {/* <p className='u-infop'>{authors.wikipediatUrl}</p> */}
                   
                   <div className='btn-container'>
                     <div className='btn-link'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>

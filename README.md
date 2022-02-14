@@ -1,5 +1,5 @@
 # checkpoint4cinefront
-## Checkpoint 4 : Les origines du cinéma 1895 - 1929 - front
+## Les origines du cinéma 1895 - 1929 - front
 
 ### ✨ To install locally:
 
@@ -15,4 +15,5 @@ https://github.com/Tadkozh/checkpoint4cineback
 
 - **npm start** for both repo
 
-    ![Le voyage dans la lune - Méliès](src/assets/Le_voyage_dans_la_lune.jpg)
+    ![Le voyage dans la lune - Méliès](src/assets/Le_voyage_dans_la_lune.jpg)  
+    *Le Voyage dans la Lune - Georges Méliès*
