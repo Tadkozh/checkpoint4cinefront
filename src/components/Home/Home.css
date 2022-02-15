@@ -1,13 +1,18 @@
 .home-main {
-  padding: 15px;
   margin-bottom: 80px;
 }
 
 .home-container {
+  padding: 20px;
   margin: 0 auto;
   max-width: 800px;
   font-size: 1.3rem;
 }
+
+.home-container h1, .home-container p, .home-container img{
+  margin-top: 5vh;
+}
+
 
 .home-img {
   display: block;
