@@ -38,7 +38,7 @@ const AuthorsItem = () => {
                   {/* <p className='u-infop'>{authors.wikipediatUrl}</p> */}
                   
                   <div className='btn-container'>
-                    <div className='btn-link'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir la fiche Wikipedia</a></div>
+                    <div className='btn-link'><a href={author.wikipediatUrl} target='_blank' rel='noreferrer noopener' >Voir la fiche Wikipedia</a></div>
                     <div className='btn-link'><Link to={`/cineaste/maj/${author.id}`}>maj</Link></div>
                   </div> 
                   <p className='u-infop'>Films présents dans ce site :</p>
