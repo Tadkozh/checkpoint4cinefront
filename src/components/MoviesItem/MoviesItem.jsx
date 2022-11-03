@@ -28,7 +28,7 @@ const MoviesItem = ({movieprops}) => {
   <>
   <main className='main'>
     <Header linkTo="/" backTo="&lt;" title={info.title} />
-        <section className='u-section'>
+        <section>
         {
           info
             ?

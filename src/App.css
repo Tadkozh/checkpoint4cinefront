@@ -17,15 +17,21 @@
 .photo {
   padding: 20px;
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 
 .btn-link a {
   padding: 10px;
   text-decoration: none;
-  background-color: #5148B6;
-  color: #fff;
+  background-color: var(--purple);
+  color: var(--blank);
   border-radius: 20px;
+}
+
+.btn-link a:hover {
+  background-color: var(--grey);
+  color: var(--purple);
+  font-weight: bold;
 }
 
 .btn-container {

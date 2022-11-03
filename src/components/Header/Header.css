@@ -3,13 +3,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  color: #FFFFFF;
-  background-color: #C4C4C4;
+  color: var(--blank);
+  background-color: var(--grey);
   font-size: 1.3rem;
   text-transform: uppercase;
   padding: 1.4rem 10vw;
   border: 0;
-  width: 80vw;
+  width: 100vw;
   height: 60px;
 }
 
@@ -27,12 +27,12 @@
 .header-return {
   border: 0;
   background-color: inherit;
-  color: white;
+  color: var(--blank);
   font-size: 30px;
   transition: color 0.2s ease-out;
 }
 
 .header-return:hover {
-  color: var(--kaki);
+  color: var(--purple);
   cursor: pointer;
 }

@@ -20,16 +20,20 @@ const AuthorsMovies = () => {
   }, []);
 
   return (
-    <ul>
-      {
-        authmov 
-          ? authmov.map((movie) => (
-                  <div><Link to={`/film/${movie.id}`}><li>{movie.title}</li></Link></div>
-            ))
-          : 'Chargement...'
-          
-      }
-    </ul>
+    <>
+      <p className='film-title'>Films présents dans ce site :</p>
+      
+      <ul className='films-list'>
+        {
+          authmov 
+            ? authmov.map((movie) => (
+                    <div><Link to={`/film/${movie.id}`}><li className='films-lnk'>{movie.title}</li></Link></div>
+              ))
+            : 'Pas encore de film pour ce cinéaste'
+            
+        }
+      </ul>
+    </>
   )};
 
 export default AuthorsMovies;
