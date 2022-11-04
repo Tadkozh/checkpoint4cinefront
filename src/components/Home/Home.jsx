@@ -17,7 +17,7 @@ const Home = () =>(
         <img className="home-img" src={langlois} alt='Henri Langlois' />
         <p>Henri Langlois fait partie de ceux qui comprennent dans les années 1930 que le film muet est un patrimoine en péril, et décide de collecter tout ce qu'il peut trouver. Si Langlois s’emploie à conserver les films, il collecte également scénarios, photos, affiches, costumes, appareils, décors et maquettes, tout ce qui constitue la mémoire de l’art cinématographique. De ce collectage, naitrons la Cinémathèque Française d'une part, et le Musée du cinéma d'autre part. Langlois laisse derrière lui une idée forte, essentielle : le cinéma est un art majeur qu’il faut préserver, restaurer, exposer et programmer.</p>
         
-        <p>Or de nos jours, on peut trouver de nombreux films de cette époque des origines sur Internet, leur âge vénérable les ayant fait passer dans le domaine public. Ce site vous propose de les rescencer et de les relier entre eux via leurs auteurs.</p>
+        <p>Or de nos jours, on peut trouver de nombreux films de cette époque des origines sur Internet, leur âge vénérable les ayant fait passer dans le domaine public. Ce site vous propose de les recencer et de les relier entre eux via leurs auteurs.</p>
       </div>
       <Footer />
     </main>

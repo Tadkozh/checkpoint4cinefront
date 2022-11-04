@@ -1,0 +1,39 @@
+Titre :
+The Immigrant
+
+Année :
+1917
+
+Durée :
+25 min
+
+Pays :
+États-Unis
+
+Genre :
+Comédie
+
+Lien vers une photo :
+https://upload.wikimedia.org/wikipedia/commons/a/a4/Chaplin_The_Immigrant.jpg
+
+Lien vers une vidéo :
+https://youtu.be/TaUp05X6gG8
+
+id du cinéaste
+3
+___________________________________________________________________________
+exemple cinéaste 
+
+firstname
+lastname
+photoAutUrl
+wikipediatUrl
+
+firstname
+Buster
+lastname
+Keaton
+photoAutUrl
+https://upload.wikimedia.org/wikipedia/commons/f/f8/Buster_Keaton_in_costume.jpg
+wikipediatUrl
+https://fr.wikipedia.org/wiki/Buster_Keaton

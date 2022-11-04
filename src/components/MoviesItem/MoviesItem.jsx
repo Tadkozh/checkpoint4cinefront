@@ -40,7 +40,7 @@ const MoviesItem = ({movieprops}) => {
                   <img className='photo' src={info.photoMovUrl} alt='cinéma'/>
                  
                   <div className='btn-container'>
-                    <div className='btn-link'><a href={info.movieUrl} target='_blank' rel='noreferrer' rel='noopener' >Voir le film</a></div>
+                    <div className='btn-link'><a href={info.movieUrl} target='_blank' rel='noreferrer noopener' >Voir le film</a></div>
                     <div className='btn-link'><Link to={`/cineaste/${info.authorId}`}>Auteur</Link></div>
                     <div className='btn-link'><Link to={`/film/maj/${info.id}`}>maj</Link></div>
                   </div> 
