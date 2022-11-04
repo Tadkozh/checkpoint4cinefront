@@ -25,10 +25,34 @@ ___________________________________________________________________________
 exemple cinéaste 
 
 firstname
-Buster
+  Buster
 lastname
-Keaton
+  Keaton
 photoAutUrl
-https://upload.wikimedia.org/wikipedia/commons/f/f8/Buster_Keaton_in_costume.jpg
+  https://upload.wikimedia.org/wikipedia/commons/f/f8/Buster_Keaton_in_costume.jpg
 wikipediatUrl
-https://fr.wikipedia.org/wiki/Buster_Keaton
+  https://fr.wikipedia.org/wiki/Buster_Keaton
+
+Titre :
+Sherlock Junior
+
+Année :
+1924
+
+Durée :
+45 min
+
+Pays :
+États-Unis
+
+Genre :
+Comédie
+
+Lien vers une photo :
+https://www.arts-in-the-city.com/wp-content/uploads/2020/09/buster-keaton-1-3200x0.jpg
+
+Lien vers une vidéo :
+https://youtu.be/JRXkAhMYKEc
+
+id du cinéaste
+4
