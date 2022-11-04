@@ -17,17 +17,6 @@ const MoviesCreate = () => {
   const navigator = useNavigate();
   const [errorserv, setErrorserv] = useState(null);
 
-  // const initialValues = {
-  //   title: '',
-  //   year: '',
-  //   duration: '',
-  //   country: '',
-  //   genre: '',
-  //   photoMovUrl: '',
-  //   movieUrl: '',
-  //   authorId: '',
-  // }
-
   const yup = require('yup') // schéma de validation des données avec yup
 	const schema = yup
 	  .object ({
@@ -88,7 +77,6 @@ const MoviesCreate = () => {
       .catch(({ response: { data: { message } } }) => {
         setErrorserv (message);
       });
-    
   }
 
   return (
