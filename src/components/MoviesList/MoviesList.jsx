@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -12,7 +11,7 @@ import './MoviesList.css';
 
 const MoviesList = () => {
   const [movies, setMovies] = useState();
-  const [wordEntered, setWordEntered] = useState([]);
+  const [wordEntered, setWordEntered] = useState('');
   
   //List of items
   const fetchData = async () => {
@@ -25,12 +24,18 @@ const MoviesList = () => {
   }, []);
 
   //Search bar
+
+  const removeAccents = (str) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  }
+  // https://ricardometring.com/javascript-replace-special-characters
+
   const handleFilter = (event) => {
-    const searchWord = event.target.value;
+    const searchWord = removeAccents(event.target.value.toLowerCase());
     setWordEntered(searchWord);
 
     const newFilter = movies.filter(
-      (movie) => movie.title.includes(searchWord),
+      (movie) => removeAccents(movie.title).toLowerCase().includes(searchWord)
     );
     if (searchWord === '') {
       fetchData();
@@ -44,10 +49,10 @@ const MoviesList = () => {
     setWordEntered('');
   };
 
-  function handleClick(e) {
-    e.preventDefault();
-    console.log('Le lien a été cliqué.');
-  }
+  // function handleClick(e) {
+  //   e.preventDefault();
+  //   console.log('Le lien a été cliqué.');
+  // }
   
   return (
     <main className='main'>
@@ -57,7 +62,7 @@ const MoviesList = () => {
         <div className='searchInputs'>
           <input
             type='text'
-            placeholder='Cherchez'
+            placeholder='Rechercher un film'
             value={wordEntered}
             onChange={handleFilter}
           />
@@ -75,7 +80,7 @@ const MoviesList = () => {
       {
         movies
           ? movies.map((movie) => (
-              <article className='u-cont-info'>
+              <article className='u-cont-info' key={movie.id}> {/* Evite le message Warning: Each Child in a List Should Have a Unique 'key' Prop */}
                   {/* <span className='u-info'>{movie.id}</span> */}
                   <p className='u-trademark'>{movie.title}</p>
                   <p className='u-infop'>{movie.year}</p>
@@ -83,7 +88,7 @@ const MoviesList = () => {
                   <div className='btn-container'>
                     <div className='btn-link'><Link to={`/film/${movie.id}`}>Détails</Link></div>
                     <div className='btn-link'><Link to={`/cineaste/${movie.authorId}`}>Auteur</Link></div>
-                  </div>               
+                  </div>             
               </article>
             ))
           : 'Chargement...'

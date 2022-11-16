@@ -2,7 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import {useForm} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,48 +17,75 @@ const MoviesCreate = () => {
   const navigator = useNavigate();
   const [errorserv, setErrorserv] = useState(null);
 
-  const yup = require('yup') // schéma de validation des données avec yup
+  // const initialValues = {
+  //   title: '',
+  //   year: '',
+  //   duration: '',
+  //   country: '',
+  //   genre: '',
+  //   photoMovUrl: '',
+  //   movieUrl: '',
+  //   authorId: '',
+  //   // Pour éviter le message
+  //   // Warning: Failed prop type: The prop `title` is marked as required in `Header`, but its value is `undefined`.
+  // }
+  
+  // Récupérer le liste des auteurs pour le menu déroulant
+  const [authors, setAuthors] = useState([]);
+  const fetchData = async () => {
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors`);
+    setAuthors(data);
+    console.log(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const yup = require('yup') 
+
+  // schéma de validation des données avec yup : à harmoniser avec les contraintes DB :
+  // https://github.com/Tadkozh/checkpoint4cineback/blob/main/ressources/Film%20Muet%20Checkpoint%204.drawio.png
 	const schema = yup
 	  .object ({
 
 	    title: yup
 	    .string()
-	    .max(50)
+	    .max(350)
 	    .required("Requis : merci d'entrer le titre du film"),
 	
 	    year: yup
 	    .string()
-	    .max(4,"Maximum 4 caractères")
+	    .max(4,"Maximum 4 caractères") //integer
 	    .required("Requis : merci d'entrer l'année"),
 	
 	    duration: yup
 	    .string()
-	    .max(255)
+	    .max(7)
 	    .required("Requis : merci d'entrer la durée"),
 	
 	    country: yup
 	    .string()
-	    .max(255)
+	    .max(350)
 	    .required("Requis : merci d'entrer le pays"),
 	
 	    genre: yup
 	    .string()
-	    .max(255)
+	    .max(350)
 	    .required("Requis : merci d'entrer le genre"),
 	
 	    photoMovUrl: yup
 	    .string()
-	    .max(255)
+	    .max(350) //vérifier http avec une regex?
 	    .required("Requis : merci d'entrer le lien vers une photo"),
 	
 	    movieUrl: yup
 	    .string()
-	    .max(255)
+	    .max(350) //vérifier http avec une regex?
 	    .required("Requis : merci d'entrer le lien vers une vidéo"),
 	
 	    authorId: yup
 	    .string()
-	    .max(255)
+	    .max(250) //integer not null
 	    .required("Requis : merci d'entrer l'identifiant du cinéaste'"),
 	  })
 
@@ -70,9 +97,10 @@ const MoviesCreate = () => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/movies/`, register,
       )
-      .then(() => {
+      .then((res) => {
+        console.log(res)
         alert('Merci pour ce nouveau film')
-        navigator('/films');
+        navigator(`/film/${res.data.id}`);
       })
       .catch(({ response: { data: { message } } }) => {
         setErrorserv (message);
@@ -100,7 +128,7 @@ const MoviesCreate = () => {
             {errors.title && <p id='c-yup'>{errors.title.message}</p>}
             
             <label htmlFor='year' className='label-ajout'>Année : </label>
-            {/* type particuier pour année? */}
+            {/* type particulier pour année? */}
             <input 
               className='input-ajout' 
               type='texte' 
@@ -168,9 +196,9 @@ const MoviesCreate = () => {
             />
             {errors.movieUrl && <p id='c-yup'>{errors.movieUrl.message}</p>}
 
-            <label htmlFor='authorId' className='label-ajout'>id du cinéaste </label>
+            {/* <label htmlFor='authorId' className='label-ajout'>id du cinéaste </label>
             <p>S'il n'est pas dans la base, créer sa fiche d'abord</p>
-             {/* A terme faire un <select> */}
+            <p>A terme faire un select</p> 
             <input 
               className='input-ajout' 
               type='text' 
@@ -179,7 +207,27 @@ const MoviesCreate = () => {
               placeholder='Identifiant du cinéaste'
               {...register('authorId')}
             />
+            {errors.authorId && <p id='c-yup'>{errors.authorId.message}</p>} */}
+
+            <label htmlFor='authorId' className='label-ajout'>Cinéaste : </label>
+            <select
+              className='select-contact' 
+              name="authorId"
+              {...register('authorId')}
+            > 
+            <option defaultValue>Choisir un cinéaste</option>
+              { authors.map((author) => (
+              <option value={author.id} key={author.id}>
+              {author.firstname}
+              &nbsp;
+              {author.lastname}
+              </option>
+              )) }
+            </select>
             {errors.authorId && <p id='c-yup'>{errors.authorId.message}</p>}
+
+            <Link to="/cineaste/creer"><button type="button">S'il n'est pas dans la liste, créer sa fiche d'abord</button></Link>
+            
 
             <button className='button-ajout' type='submit' value='Ajouter un film'>Ajouter le film</button>
 

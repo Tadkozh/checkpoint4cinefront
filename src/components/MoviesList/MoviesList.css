@@ -1,7 +1,18 @@
 .search {
   margin: 1.5rem auto;
-  width: 60%;
+  width: 70%;
   max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+.searchIcon{
+  display: inline;
+  color: var(--purple);
+  padding: 0.5rem;
+}
+
+.searchInputs input{
+  padding: 1rem;
 }
 
 .u-section {
@@ -21,12 +32,9 @@
   border-radius: 20px;
   border: 1px solid var(--purple);
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.15);
-}
-
-.u-cont-info-top {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 0.8rem;
 }
 
 .u-trademark {

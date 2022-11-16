@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -24,12 +23,18 @@ const AuthorsList = () => {
   }, []);
 
   //Search bar
+
+  const removeAccents = (str) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  }
+  // https://ricardometring.com/javascript-replace-special-characters
+
   const handleFilter = (event) => {
-    const searchWord = event.target.value;
+    const searchWord = removeAccents(event.target.value.toLowerCase());
     setWord(searchWord);
 
     const newFilter = authors.filter(
-      (author) => author.title.includes(searchWord),
+      (author) => removeAccents(author.firstname).toLowerCase().includes(searchWord) || removeAccents(author.lastname).toLowerCase().includes(searchWord)
     );
     if (searchWord === '') {
       fetchData();
@@ -51,7 +56,7 @@ const AuthorsList = () => {
         <div className='searchInputs'>
           <input
             type='text'
-            placeholder='Cherchez'
+            placeholder='Rechercher un cinéaste'
             value={word}
             onChange={handleFilter}
           />
@@ -69,7 +74,7 @@ const AuthorsList = () => {
       {
         authors
           ? authors.map((author) => (
-              <article className='u-cont-info'>
+              <article className='u-cont-info' key={author.id}> {/* Evite le message Warning: Each Child in a List Should Have a Unique 'key' Prop */}
                   {/* <span className='u-info'>{author.id}</span> */}
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='cinéma'/>

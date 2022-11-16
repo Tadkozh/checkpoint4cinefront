@@ -1,58 +1,46 @@
-Titre :
-The Immigrant
 
-Année :
-1917
-
-Durée :
-25 min
-
-Pays :
-États-Unis
-
-Genre :
-Comédie
-
-Lien vers une photo :
-https://upload.wikimedia.org/wikipedia/commons/a/a4/Chaplin_The_Immigrant.jpg
-
-Lien vers une vidéo :
-https://youtu.be/TaUp05X6gG8
-
-id du cinéaste
-3
 ___________________________________________________________________________
 exemple cinéaste 
 
 firstname
-  Buster
+  Edward
 lastname
-  Keaton
+  Muybridge
 photoAutUrl
-  https://upload.wikimedia.org/wikipedia/commons/f/f8/Buster_Keaton_in_costume.jpg
+  https://upload.wikimedia.org/wikipedia/commons/0/07/Muybridge-2.jpg
 wikipediatUrl
-  https://fr.wikipedia.org/wiki/Buster_Keaton
+  https://fr.wikipedia.org/wiki/Eadweard_Muybridge
 
+
+___________________________________________________________________________
 Titre :
-Sherlock Junior
+Animal Locomotion
 
 Année :
-1924
+1879
 
 Durée :
-45 min
+85 sec
 
 Pays :
-États-Unis
+Royaume-Uni
 
 Genre :
-Comédie
+Documentaire
 
 Lien vers une photo :
-https://www.arts-in-the-city.com/wp-content/uploads/2020/09/buster-keaton-1-3200x0.jpg
+https://upload.wikimedia.org/wikipedia/commons/b/bd/Muybridge_horse_jumping.jpg
 
 Lien vers une vidéo :
-https://youtu.be/JRXkAhMYKEc
+https://youtu.be/07x7KhuwwFE
 
-id du cinéaste
-4
+[id du cinéaste]
+___________________________________________________________________________
+___________________________________________________________________________
+Une modification (route PUT) :
+
+La Sortie de l'Usine Lumière à Lyon
+https://youtu.be/J1EdyZtkGXo
+
+Charlie Chaplin - The Kid
+https://youtu.be/0wg7QjQztlk

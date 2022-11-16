@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 // import MoviesAuthor from '../MoviesAuthor/MoviesAuthor';
 import './MoviesItem.css';
 
-const MoviesItem = ({movieprops}) => {
+const MoviesItem = () => {
 
   const { id } = useParams();
   const [info, setInfo] = useState([]);
@@ -15,7 +15,7 @@ const MoviesItem = ({movieprops}) => {
   const fetchInfo = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies/${id}`);
     setInfo(data);
-    console.log(data);
+    //console.log(data);
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const MoviesItem = ({movieprops}) => {
         {
           info
             ?
-              <article className='u-cont-info'>
+              <article className='u-cont-info' key={info.id}>
                   <p className='u-infop'>Année : {info.year}</p>
                   <p className='u-infop'>Durée : {info.duration}</p>
                   <p className='u-infop'>Pays : {info.country}</p>

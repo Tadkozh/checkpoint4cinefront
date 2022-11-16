@@ -13,7 +13,7 @@ const AuthorsMovies = () => {
   const fetchData = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/authors/${id}/movies`);
     setAuthmov(data);
-    console.log(data);
+    //console.log(data);
   };
   useEffect(() => {
     fetchData();
@@ -27,7 +27,7 @@ const AuthorsMovies = () => {
         {
           authmov 
             ? authmov.map((movie) => (
-                    <div><Link to={`/film/${movie.id}`}><li className='films-lnk'>{movie.title}</li></Link></div>
+                    <div key={movie.id}><Link to={`/film/${movie.id}`}><li className='films-lnk'>{movie.title}</li></Link></div>
               ))
             : 'Pas encore de film pour ce cinéaste'
             

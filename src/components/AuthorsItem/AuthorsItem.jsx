@@ -24,14 +24,14 @@ const AuthorsItem = () => {
   
   return (
     <main className='main'>
-    <Header linkTo='/' backTo='&lt;' title={author.lastname} />
+    <Header linkTo='/' backTo='&lt;' title='' firstname={author.firstname} lastname={author.lastname} />
 
       <section>
       {
         author
           ?
             <>
-              <article className='u-cont-info'>
+              <article className='u-cont-info' key={author.id}>
                   <p className='u-trademark'>{author.firstname} {author.lastname}</p>
                   <img className='photo' src={author.photoAutUrl} alt='portrait'/>
                   

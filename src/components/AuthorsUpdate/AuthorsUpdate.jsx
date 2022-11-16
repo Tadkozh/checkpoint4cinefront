@@ -6,15 +6,15 @@ import './AuthorsUpdate.css';
 
 const AuthorsUpdate = () => {
   return (
-    <>
-      <Header linkTo="/" backTo="&lt;" title="Mise à jour d'un cinéaste" />
-      <main className="nopage-container">
-        <div className="nopage-content">
-          <div>AuthorsUpdate</div>
-        </div>
-      </main>
-      <Footer />
-    </>
+  <>
+    <Header linkTo="/" backTo="&lt;" title="Modification cinéaste" />
+    <main className="nopage-container">
+      <div className="nopage-content">
+        <div>AuthorsUpdate</div>
+      </div>
+    </main>
+    <Footer />
+  </>
   )
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {useForm} from 'react-hook-form';
@@ -18,42 +18,52 @@ const AuthorsCreate = () => {
   const navigator = useNavigate();
   const [errorserv, setErrorserv] = useState(null);
 
-  const yup = require('yup') // schéma de validation des données avec yup
+  // const initialValues = {
+  //   firstname: '',
+  //   lastname: '',
+  //   photoAutUrl: '',
+  //   wikipediatUrl: '',
+  // }
+
+  const yup = require('yup')
+  
+  // schéma de validation des données avec yup : à harmoniser avec les contraintes DB :
+  // https://github.com/Tadkozh/checkpoint4cineback/blob/main/ressources/Film%20Muet%20Checkpoint%204.drawio.png
   const schema = yup
     .object ({
 
       firstname: yup
       .string()
-      .max(50)
-      .required("Requis : merci d'entrer le titre du film"),
+      .max(350)
+      .required("Requis : merci d'entrer le nom du cinéaste"),
 
       lastname: yup
       .string()
-      .max(50)
-      .required("Requis : merci d'entrer l'année"),
+      .max(350)
+      .required("Requis : merci d'entrer le prénom du cinéaste"),
 
       photoAutUrl: yup
       .string()
-      .max(255)
+      .max(350)
       .required("Requis : merci d'entrer le lien vers une photo"),
 
       wikipediatUrl: yup
       .string()
-      .max(255)
-      .required("Requis : merci d'entrer le lien vers une vidéo"),
+      .max(350)
+      .required("Requis : merci d'entrer le lien vers Wikipedia"),
   })
 
   const { register, formState: {errors}, handleSubmit} = useForm ({resolver: yupResolver(schema)});
 
   const onSubmit = (register) => {
 
-    //Ajouter le film dans la DB
+    //Ajouter le cinéaste dans la DB
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/authors/`, register,
       )
-      .then(() => {
+      .then((res) => {
         alert('Merci pour ce nouveau cinéaste')
-        navigator('/cineastes');
+        navigator(`/cineaste/${res.data.id}`);
       })
       .catch(({ response: { data: { message } } }) => {
         setErrorserv (message);
@@ -101,13 +111,13 @@ const AuthorsCreate = () => {
             />
             {errors.photoAutUrl && <p id='c-yup'>{errors.photoAutUrl.message}</p>}
 
-            <label htmlFor='wikipediatUrl' className='label-ajout'>Lien vers une vidéo : </label>
+            <label htmlFor='wikipediatUrl' className='label-ajout'>Lien vers Wikipedia : </label>
             <input 
               className='input-ajout' 
               type='text' 
               id='wikipediatUrl' 
               name='wikipediatUrl' 
-              placeholder='Vidéo https://'
+              placeholder='Wikipedia https://'
               {...register('wikipediatUrl')}
             />
             {errors.wikipediatUrl && <p id='c-yup'>{errors.wikipediatUrl.message}</p>}
