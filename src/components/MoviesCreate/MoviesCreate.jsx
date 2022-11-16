@@ -196,19 +196,6 @@ const MoviesCreate = () => {
             />
             {errors.movieUrl && <p id='c-yup'>{errors.movieUrl.message}</p>}
 
-            {/* <label htmlFor='authorId' className='label-ajout'>id du cinéaste </label>
-            <p>S'il n'est pas dans la base, créer sa fiche d'abord</p>
-            <p>A terme faire un select</p> 
-            <input 
-              className='input-ajout' 
-              type='text' 
-              id='authorId' 
-              name='authorId' 
-              placeholder='Identifiant du cinéaste'
-              {...register('authorId')}
-            />
-            {errors.authorId && <p id='c-yup'>{errors.authorId.message}</p>} */}
-
             <label htmlFor='authorId' className='label-ajout'>Cinéaste : </label>
             <select
               className='select-contact' 
@@ -226,9 +213,8 @@ const MoviesCreate = () => {
             </select>
             {errors.authorId && <p id='c-yup'>{errors.authorId.message}</p>}
 
-            <Link to="/cineaste/creer"><button type="button">S'il n'est pas dans la liste, créer sa fiche d'abord</button></Link>
+            <Link to="/cineaste/creer"><button type="button">Si le cinéaste n'est pas dans la liste, créer sa fiche d'abord</button></Link>
             
-
             <button className='button-ajout' type='submit' value='Ajouter un film'>Ajouter le film</button>
 
           </div>
