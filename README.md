@@ -15,5 +15,9 @@ https://github.com/Tadkozh/checkpoint4cineback
 
 - **npm start** for both repo
 
+- Enjoy !
+
     ![Le voyage dans la lune - Méliès](src/assets/Le_voyage_dans_la_lune.jpg)  
     *Le Voyage dans la Lune - Georges Méliès*
+
+The history of this site on LinkedIn: https://www.linkedin.com/posts/franck-cario-infodocbib_react-express-nodejs-activity-6896417044305444864-uiyt/
